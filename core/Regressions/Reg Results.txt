@@ -1,0 +1,36 @@
+For all claims:
+
+Best MLR: ['exposure', 'agecat', 'driving_history_score', 'trm_len']
+        P-Value: 4.150790822166073e-12
+
+Best PR (deg 2): ['veh_value', 'exposure', 'veh_age', 'agecat', 'max_power', 'driving_history_score', 'e_bill', 'trm_len', 'credit_score', 'high_education_ind']
+        P-Value: 1.8818280267396403e-13
+
+Best PR (deg 3): ['veh_value', 'exposure', 'veh_age', 'agecat', 'max_power', 'driving_history_score', 'e_bill', 'trm_len', 'credit_score', 'high_education_ind']
+        P-Value: 1.1102230246251565e-16
+        
+Best PR (deg 4): ['veh_value', 'exposure', 'veh_age', 'agecat', 'max_power', 'driving_history_score', 'e_bill', 'trm_len', 'credit_score', 'high_education_ind']
+        P-Value: 1.1102230246251565e-16
+
+
+        
+For non zero claims:
+
+Best MLR: ['exposure', 'max_power', 'driving_history_score', 'trm_len']
+        P-Value: 0.0007638219463943496
+
+Best PR (deg 2): ['veh_value', 'exposure', 'veh_age', 'agecat', 'max_power', 'driving_history_score', 'e_bill', 'trm_len', 'credit_score', 'high_education_ind']
+        P-Value: 1.1102230246251565e-16
+
+Best PR (deg 3): ['veh_value', 'exposure', 'veh_age', 'agecat', 'max_power', 'driving_history_score', 'e_bill', 'trm_len', 'credit_score', 'high_education_ind']
+        P-Value: 1.1102230246251565e-16
+
+Best PR (deg 4): ['veh_value', 'exposure', 'veh_age', 'agecat', 'max_power', 'driving_history_score', 'e_bill', 'trm_len', 'credit_score', 'high_education_ind']
+        P-Value: 1.1102230246251565e-16
+
+
+RANSAC had p-values of 1.0 for all regressions, and the residual plots did not look better than the ones for either the multiple linear or polynomial regressions.
+
+The residual plots of polynomial regressions got worse as the degree increased.
+
+
