@@ -69,6 +69,52 @@ def preprocess(data: pd.DataFrame, standardize=True):
 
     return X_preprocessed, Y1, Y2, Y3
 
+def preprocess_predict(data: pd.DataFrame, standardize=True):
+    standard_numerical_transformer = Pipeline(steps=[
+        ('imputer', SimpleImputer(strategy="mean")),
+    ])
+    norm_numerical_transformer = Pipeline(steps=[
+        ('imputer', SimpleImputer(strategy="mean")),
+        ('scaler', StandardScaler())
+    ])
+    # if a value is null, then we just treat it as a new category of data
+    # the onehot encoder just treats each category as a separate column, with 
+    # n-1 columns (where there are n distinct categories)
+    categorical_transformer = Pipeline(steps=[
+        ('imputer', SimpleImputer(strategy="constant", fill_value="missing")),
+        ("onehot", OneHotEncoder(handle_unknown="ignore", sparse=False))
+    ])
+    
+    categorical_columns = data.select_dtypes(include=['object', 'category']).columns
+    numerical_columns = data.select_dtypes(include=['int64', 'float64']).columns
+
+    # Combine transformers using ColumnTransformer
+    num_trans = None
+    if standardize: num_trans = norm_numerical_transformer
+    else: num_trans = standard_numerical_transformer
+
+    # allows you to choose which columns you adjust!
+    # passthrough means 
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ('num', num_trans, numerical_columns),
+            ('cat', categorical_transformer, categorical_columns)
+        ], remainder = 'passthrough'
+        # setting remainder="passthrough" automatically passes all columns not specified by 
+        # the transformers through the transformation
+    )
+
+    pipeline = Pipeline(steps=[
+        ("preprocessor", preprocessor)
+    ])
+
+    # apply the pipeline to the dataset of interest, axis=1 specifies columns should be dropped
+    X = data
+    # fit the preprocessor to the predictor variables
+    X_preprocessed = pipeline.fit_transform(X)
+
+    return X_preprocessed
+
 # try a hierarchical learning approach - hierarchical modeling!
 def main():
     data_f = "../data/InsNova_data_2023_train.csv"
