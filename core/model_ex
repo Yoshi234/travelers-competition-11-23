@@ -1,0 +1,11 @@
+Fitting 3 folds for each of 192 candidates, totalling 576 fits
+[CV] END learning_rate=0.1, max_depth=6, n_estimators=100, scale_pos_weight=1, subsample=1.0; total time=   3.1s
+[CV] END learning_rate=0.1, max_depth=6, n_estimators=100, scale_pos_weight=6.4095, subsample=1.0; total time=   3.4s
+[CV] END learning_rate=0.1, max_depth=6, n_estimators=100, scale_pos_weight=6.4095, subsample=1.0; total time=   3.1s
+[CV] END learning_rate=0.1, max_depth=6, n_estimators=100, scale_pos_weight=1, subsample=1.0; total time=   3.1s
+[CV] END learning_rate=0.1, max_depth=6, n_estimators=100, scale_pos_weight=6.4095, subsample=1.0; total time=   3.1s
+[CV] END learning_rate=0.1, max_depth=6, n_estimators=100, scale_pos_weight=6.4095, subsample=0.6; total time=   3.9s
+[CV] END learning_rate=0.1, max_depth=6, n_estimators=100, scale_pos_weight=1, subsample=0.6; total time=   3.8s
+[CV] END learning_rate=0.1, max_depth=6, n_estimators=100, scale_pos_weight=6.4095, subsample=0.6; total time=   3.7s
+[CV] END learning_rate=0.1, max_depth=6, n_estimators=100, scale_pos_weight=1, subsample=0.6; total time=   3.7s
+[CV] END learning_rate=0.1, max_depth=6, n_estimators=100, scale_pos_weight=1, subsample=1.0; total time=   3.1s

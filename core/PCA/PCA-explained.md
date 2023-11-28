@@ -151,3 +151,31 @@ to demonstrate a lot of overlap in the data
 ![](figures/3d-principal-components.png)
 
 </center>
+
+<h2 style="color:CornflowerBlue"> PCA for Feature Engineering </h2> 
+
+---
+
+Use `sklearn.decomposition` and principal component analysis in order
+to gets a certain number of features, and tries to uncorrelate the data. 
+
+```python
+from sklearn.decomposition import PCA
+
+pca = PCA()
+X_pca_Pre = pca.fit_transform(X_preprocessed)
+
+# Calculate the cumulative explained variance
+cumulative_expalined_variance = np.cumsum(pca.explained_variance_ratio_)
+
+# Choose number of components based on explained variance threshold
+n_components = np.argmax(cumulative_explained_variance >= 0.95) + 1
+
+pca = PCA(n_components = n_components)
+# append pca to the data pipeline
+pipeline_pca = Pipeline(steps=
+                        [("preprocessor", preprocessor),
+                         ("pca", pca)])
+
+X_pca = pipeline_pca.fit_transform(X)
+```
